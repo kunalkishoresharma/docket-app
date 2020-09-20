@@ -1,0 +1,241 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+*{
+  margin: 0;
+  box-sizing: border-box;
+}
+div#root {
+  background: #e3e9f3;
+  min-height: 500px;
+  height: 100vh;
+  padding: 3%;
+}
+.App {
+  height: 100%;
+  border-radius: 35px;
+  background-color: #fff;
+  box-shadow: 0 0 18px 2px #d6dbe4;
+}
+.container__wrapper {
+  display: flex;
+  height: 100%;
+}
+.sidebar {
+  min-width: 120px;
+  border-right: 1px solid #e8e8e8;
+  padding: 3rem 1rem;
+  overflow: auto;
+}
+.main-content {
+  width: 100%;
+  padding: 3rem 1rem;
+  text-align: left;
+  overflow: auto;
+  padding-top: 0;
+}
+.FontSize--M{
+  font-size: 20px;
+}
+.FontSize--XL{
+  font-size: 60px;
+}
+.sidebar h2{
+  margin-bottom: 60px;
+}
+.search__box {
+  position: relative;
+  margin-bottom: 30px;
+  position: sticky;
+  top: 0;
+  margin-top: 35px;
+  z-index: 999;
+  padding: 10px;
+  background-color: #fff;
+}
+.search__box--input {
+  border: 0;
+  width: 100%;
+  padding: 10px;
+  padding-left: 30px;
+  background-image:url('assets/img/magnifying-glass.svg');
+  background-position: center left;
+  background-repeat: no-repeat;
+}
+
+.focus__underline {
+  height: 2px;
+  width: 0;
+  background-color: aqua;
+  transition: 0.2s ease width, 0.25s ease background-color;
+  position: absolute;
+  margin: auto;
+  bottom: 10px;
+  display: block;
+  left: 0;
+  right: 0;
+}
+.search__box--input:focus + .focus__underline {
+  width: 100%;
+  background-color: pink
+}
+.btn{
+  border: 0;
+  background-color: #000;
+  color: #fff;
+  padding: 5px;
+  cursor: pointer;
+  transition: ease-out 0.3s transform, ease 0.5s box-shadow;
+
+}
+.btn-round {
+  border-radius: 50%;
+  height: 45px;
+  width: 45px;
+  font-size: 2rem;
+
+}
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  clip: rect(0,0,0,0);
+  display: block;
+}
+.btn:hover {
+  box-shadow: 0 0 13px 4px aqua;
+}
+.btn:focus {
+  box-shadow: 0 0 13px 4px  pink;
+}
+.btn:active {
+  transform: scale(0.9);
+  box-shadow: 0 0 13px 4px  pink;
+}
+.notes__container {
+  margin-top: 25px;
+  display: flex;
+  margin-left: -15px;
+  margin-right: -15px;
+  flex-wrap: wrap;
+}
+
+.notes__list {
+  padding: 15px;
+  flex: 0 0 100%;
+  position: relative;
+}
+.editable__cont{
+  background-color: #f1f1f1;
+  padding: 15px;
+  border-radius: 10px;
+}
+.note__text {
+  border: 0;
+  background-color: transparent;
+  padding: 10px;
+  border-radius: 10px;
+  width: 100%;
+  resize: none;
+  height: 180px;
+  padding-right: 30px;
+  font-size: 1.5rem;
+}
+.btn-img {
+  position: absolute;
+  border-radius: 50%;
+  height: 35px;
+  width: 35px;
+  right: 25px;
+  top: 25px;
+}
+.btn-img:after {
+  content: '';
+  position: absolute;
+  height: 25px;
+  width: 25px;
+  background-image: url(assets/img/star.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  top: 0;
+  left: 0;
+  margin: auto;
+  bottom: 0;
+  right: 0;
+}
+.btn__img--write:after{
+  background-image: url(assets/img/edit.svg);
+
+}
+.btn__img--write{
+  top: inherit;
+  bottom: 25px;
+}
+.sticky__bottom {
+  padding-left: 10px;
+  padding-right: 35px;
+}
+button.btn.btn-sm {
+  width: 20px;
+  height: 20px;
+}
+.btn--list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px;
+}
+.btn--list .btn{
+  margin-top: 25px;
+}
+.btn.btn-close {
+  transform: rotate(45deg);
+}
+.message {
+  background-color: #f1bfa8;
+  padding: 15px;
+  border-radius: 5px;
+  margin-top: 25px;
+}
+.hover__show{
+  transition: ease-out 0.3s;
+  opacity: 0;
+  visibility: hidden;
+}
+.editable__cont:hover .hover__show{
+  opacity: 1;
+  visibility: visible;
+}
+
+@media(min-width:768px){
+  .notes__list {
+    flex: 0 0 50%;
+  }
+  .sidebar {
+    padding: 3rem 2rem;
+  }
+  .main-content {
+    padding: 3rem ;
+  }
+}
+@media(min-width:992px){
+  .notes__list {
+    flex: 0 0 33%;
+  }
+}
+
+@media(min-width:1200px){
+  .notes__list {
+    flex: 0 0 25%;
+  }
+}
